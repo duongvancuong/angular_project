@@ -1,0 +1,16 @@
+<div id="main" ng-click="hideTooltip()">
+
+	<div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+		<form name="FormObject" ng-submit="sendMessage(FormObject.$valid, object.name, object.money)" >
+			<input type="text" ng-model="object.name" required />
+			<input type="text" ng-model="object.money" required />
+			<button type="submit" ng-disabled="!FormObject.$valid">SEND</button>
+
+		</form>
+	</div>
+
+	<div>
+		<p ng-click="toggleTooltip($event)">WRITE</p>
+	</div>
+
+</div>

@@ -1,0 +1,13 @@
+<form>
+	<h1>Services</h1>
+	<ul>
+		<li ng-repeat="service in objectPost" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+			{{service.name}} <span>{{service.money | currency}}</span>
+		</li>
+	</ul>
+	<div class="total">
+		Total: <span>{{total() | currency}}</span>
+	</div>
+</form>
+
+<button ng-click="comeBack()">Back Home</button>
