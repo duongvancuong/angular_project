@@ -14,11 +14,13 @@
 		$stateProvider
 			.state('index', {
 				url: '/',
-				templateUrl: 'views/navigation.html'
+				templateUrl: 'scripts/CRUD-API/views/movie.html',
+				controller: 'MovieListController'
 			})
 			.state('page', {
 				url: '/page',
-				templateUrl: 'views/navigation.html'
+				templateUrl: 'scripts/CRUD-API/views/movie.html',
+				controller: 'MovieListController'
 			});
 	}
 

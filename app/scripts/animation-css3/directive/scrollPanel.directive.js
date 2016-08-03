@@ -3,7 +3,7 @@
 	angular.module('myapp').directive('scrollPanel',scrollPanel);
   scrollPanel.$inject = ['$state'];
 	function scrollPanel($state) {
-		return {
+	    return {
 			restrict: 'A',
 			require : '?ngModel',
 			scope: {

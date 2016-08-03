@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title ng-bind="title">Home</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/page1.css">
     <link rel="stylesheet" href="styles/page1-post.css">
@@ -12,13 +12,31 @@
     <link rel="stylesheet" href="styles/calender.css">
     <link rel="stylesheet" href="styles/text.directive.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/app.css">
+
     <!-- endbuild -->
   </head>
   <body>
 
-  <div class="container">
-    <ui-view></ui-view>
-  </div>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="index">The Movie App</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a ui-sref="movies.listMovie">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row top-buffer">
+        <div class="col-xs-8 col-xs-offset-2">
+          <div ui-view></div> <!-- This is where our views will load -->
+        </div>
+      </div>
+    </div>
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="/bower_components/angular/angular.min.js"></script>
@@ -48,6 +66,15 @@
   <script src="scripts/animation-css3/directive/text.directive.js"></script>
   <script src="scripts/animation-css3/directive/scrollPanel.directive.js"></script>
   <script src="scripts/animation-css3/directive/modal.directive.js"></script>
+
+  <!-- movie -->
+  <script src="scripts/CRUD-API/route/movie.route.js"></script>
+  <script src="scripts/CRUD-API/controller/movie-list.controller.js"></script>
+  <script src="scripts/CRUD-API/controller/movie-view.controller.js"></script>
+  <script src="scripts/CRUD-API/controller/movie-add-or-edit.controller.js"></script>
+  <script src="scripts/CRUD-API/service/movie.service.js"></script>
+  <script src="scripts/CRUD-API/service/popup.service.js"></script>
+  
   
   <!-- endbuild -->
 </body>

@@ -9,8 +9,8 @@
 			scope: {
 				ngModel: '='
 			},
-			// templateUrl: 'scripts/animation-css3/views/modal.template.html',
-			template: '',
+			templateUrl: 'scripts/animation-css3/views/modal.template.html',
+			// template: '',
 			link: function(scope, el, attrs) {
 				scope.modalId = attrs.modalId;
 				scope.title = attrs.modalTitle;

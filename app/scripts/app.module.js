@@ -14,6 +14,7 @@
       'myapp.page1',
       'myapp.page2',
       'myapp.page3',
+      'myapp.movie',
 
     ]);
 
