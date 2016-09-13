@@ -7,6 +7,8 @@
 	function MovieListController($scope, MovieService, popupService, $state, $window, $stateParams) {
 
 		$scope.ListMovie = [];
+    $scope.showDetails = 'false';
+
 		$scope.getAllMovies = function() {
 			MovieService.getListMovie().then(function(successData) {
 				$scope.ListMovie = successData;
@@ -25,9 +27,31 @@
 				});
 			}
 		};
+    $scope.number = '';
+    $scope.list = [];
+    $scope.addNumber = function() {
+      var listNumber = [];
+      $scope.list = [];
+      listNumber = $scope.number.split(',');
+      angular.forEach(listNumber, function(number) {
+        if(!!number.replace(/\D+/g, "")) {
+          $scope.list.push(number.replace(/\D+/g, ""));
+        }
+      });
+      $scope.number = '';
+      angular.forEach($scope.list, function(number) {
+        $scope.number += number + ',\n';
+      });
+      console.log($scope.list);
+    };
+
+    $scope.change = function() {
+      $scope.number = $scope.number.replace(/,/g , ';\n');
+      console.log($scope.number);
+    };
 
 		$scope.getAllMovies();
-		
+
 
 	}
 })();
