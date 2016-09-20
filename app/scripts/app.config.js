@@ -8,19 +8,13 @@
 	appConfig.$inject = ['$stateProvider', '$httpProvider', '$urlRouterProvider'];
 
 	function appConfig($stateProvider, $httpProvider, $urlRouterProvider) {
-		
+
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
 			.state('index', {
 				url: '/',
-				templateUrl: 'scripts/CRUD-API/views/movie.html',
-				controller: 'MovieListController'
-			})
-			.state('page', {
-				url: '/page',
-				templateUrl: 'scripts/CRUD-API/views/movie.html',
-				controller: 'MovieListController'
+				templateUrl: './index.html'
 			});
 	}
 

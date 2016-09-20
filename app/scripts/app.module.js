@@ -15,6 +15,7 @@
       'myapp.page2',
       'myapp.page3',
       'myapp.movie',
+      'myapp.tutorial',
 
     ]);
 
