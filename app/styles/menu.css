@@ -4,15 +4,6 @@
 /**************************************************************
 If you choose to use the Franklin Gothic font then this code will help get you started with embedding it.
 **************************************************************/
-@font-face {
-    font-family: 'FranklinGothicMediumRegular'; /* For non-web-standard fonts, define the font name here */
-    src: url('framd-webfont.eot?') format('eot'),  /* Define the directory where you put your fonts under src: url('') and the format of the font (e.g. TrueType) */
-         url('framd-webfont.woff') format('woff'),
-         url('framd-webfont.ttf') format('truetype'),
-         url('framd-webfont.svg#webfontb01Cou6J') format('svg');
-    font-weight: normal;
-    font-style: normal; /* The style of your font (e.g. italic) */
-      }
 
 body{
   } /* Editing this may conflict with the body tag in your main sites css file.  Delete it if you like. */

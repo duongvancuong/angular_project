@@ -4,13 +4,20 @@
     <meta charset="utf-8">
     <title ng-bind="title">Home</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link ng-if="!$state.includes('index')" rel="stylesheet" href="styles/navigation.css">
+    <link ng-if="!$state.includes('index')" rel="stylesheet" href="styles/page1.css">
+    <!-- <link ng-if="!$state.includes('index')" rel="stylesheet" href="styles/page1-post.css"> -->
+    <!-- <link ng-if="!$state.includes('index')" rel="stylesheet" href="styles/page2.css"> -->
+    <!-- <link rel="stylesheet" href="styles/calender.css"> -->
+    <!-- <link ng-if="!$state.includes('index')" rel="stylesheet" href="styles/text.directive.css"> -->
+    <link ng-if="!$state.includes('index')" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/menu.css" media="screen" />
-    <!-- endbuild -->
+    <link rel="stylesheet" href="styles/app.css">
   </head>
   <body>
-    <div ng-include="'views/header.html'"></div>
+    <div ng-if="$state.includes('index')" ng-include="'views/header.html'"></div>
+    <div ng-if="!$state.includes('index')" ui-view></div>
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="/bower_components/angular/angular.min.js"></script>

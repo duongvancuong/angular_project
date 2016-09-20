@@ -12,3 +12,35 @@
 a.nodecoration{
     text-decoration:none;
 }
+
+// CSS Responsive Table
+@media only screen and(max-width: 320px)
+{
+    table thead {
+      display: none;
+    }
+
+    table tr {
+      margin-bottom: 10px;
+      display: block;
+      border-bottom: 2px solid #ddd;
+    }
+
+    table td {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+
+    table td:before {
+      content: attr(data-title);
+      float: left;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+}

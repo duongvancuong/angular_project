@@ -12,10 +12,10 @@
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
-			.state('index', {
-				url: '/',
-				templateUrl: './index.html'
-			});
+      .state('index', {
+        url: '/',
+        templateUrl: './index.html'
+      });
 	}
 
 	runApp.$inject = ['$rootScope', '$stateParams', '$state'];
