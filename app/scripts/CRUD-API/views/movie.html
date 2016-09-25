@@ -5,16 +5,16 @@
     <td><h3>All Movies</h3></td>
     <td></td>
   </tr>
-  <tr ng-repeat="movie in ListMovie">
+  <tr ng-repeat="movie in MovieListCtrl.ListMovie">
     <td>{{movie.title}}</td>
     <td>
       <a class="btn btn-primary" ui-sref="movies.viewMovie({id:movie._id})">View</a>
-      <a class="btn btn-danger"  ng-click="deleteMovie(movie._id)">Delete</a>
+      <a class="btn btn-danger"  ng-click="MovieListCtrl.deleteMovie(movie._id)">Delete</a>
     </td>
   </tr>
 </table>
 
-<textarea name="" class="form-control" rows="15" ng-model="number"></textarea>
-<button ng-click="addNumber()">button</button>
+<textarea name="" class="form-control" rows="15" ng-model="MovieListCtrl.number"></textarea>
+<button ng-click="MovieListCtrl.addNumber()">button</button>
 
 <input type="file" file-reader="fileContent" />
