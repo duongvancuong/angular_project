@@ -18,6 +18,16 @@
         Controller: 'TutorialsCtrl',
         ControllerAs: 'tutorials',
         title: 'Responsive table'
+      })
+      .state('tutorials.css', {
+        url: '/css',
+        templateUrl: 'views/ui-view.html',
+        title: 'Tutorials HTML + CSS'
+      })
+      .state('tutorials.button', {
+        url: '/button-css',
+        templateUrl: 'scripts/tutorials/views/button-css.html',
+        title: 'Button CSS'
       });
   }
 
