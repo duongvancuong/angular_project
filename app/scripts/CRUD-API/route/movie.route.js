@@ -14,7 +14,8 @@
 			.state('movies.listMovie',{
 				url: '/all',
 				templateUrl: 'scripts/CRUD-API/views/movie.html',
-				controller: 'MovieListController'
+				controller: 'MovieListController',
+        controllerAs: 'MovieListCtrl'
 			})
 			.state('movies.viewMovie',{
 				url: '/:id/view',

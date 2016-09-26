@@ -5,53 +5,69 @@
 		.controller('MovieListController',MovieListController);
 	MovieListController.$inject = ['$scope','MovieService', 'popupService', '$state','$window','$stateParams'];
 	function MovieListController($scope, MovieService, popupService, $state, $window, $stateParams) {
+    var vm = this;
 
-		$scope.ListMovie = [];
-    $scope.showDetails = 'false';
+		vm.ListMovie = [];
+    vm.showDetails = 'false';
+    $scope.fileContent = '';
+    vm.listNumber = [];
+    vm.listNumberError = [];
 
-		$scope.getAllMovies = function() {
+    $scope.$watch('fileContent', function(newValue) {
+      if (newValue) {
+        var content = $scope.fileContent;
+        var reg = /^\d+$/;
+        var arr = content.split('\n');
+        console.log(arr);
+        angular.forEach(arr, function(number) {
+          vm.listNumber.push(number.replace(/\s+/g, ''));
+        });
+
+        // var a = content.replace(/\D+/g, "");
+      }
+    });
+
+		vm.getAllMovies = function() {
 			MovieService.getListMovie().then(function(successData) {
-				$scope.ListMovie = successData;
+				vm.ListMovie = successData;
 			}).catch(function(errorData) {
 				$window.alert(errorData);
 			});
 		};
 
-		$scope.deleteMovie = function(movieId) {
+		vm.deleteMovie = function(movieId) {
 			if(popupService.showPopup("Really delete this ?")){
 				MovieService.deleteMovie(movieId).then(function(successData) {
-					$scope.getAllMovies();
+					vm.getAllMovies();
 					$state.go('movies.listMovie');
 				}).catch(function(errorData) {
 					$window.alert(errorData);
 				});
 			}
 		};
-    $scope.number = '';
-    $scope.list = [];
-    $scope.addNumber = function() {
+    vm.number = '';
+    vm.list = [];
+    vm.addNumber = function() {
       var listNumber = [];
-      $scope.list = [];
-      listNumber = $scope.number.split(',');
+      vm.list = [];
+      listNumber = vm.number.split(',');
       angular.forEach(listNumber, function(number) {
         if(!!number.replace(/\D+/g, "")) {
-          $scope.list.push(number.replace(/\D+/g, ""));
+          vm.list.push(number.replace(/\D+/g, ""));
         }
       });
-      $scope.number = '';
-      angular.forEach($scope.list, function(number) {
-        $scope.number += number + ',\n';
+      vm.number = '';
+      angular.forEach(vm.list, function(number) {
+        vm.number += number + ',\n';
       });
-      console.log($scope.list);
+      console.log(vm.list);
     };
 
-    $scope.change = function() {
-      $scope.number = $scope.number.replace(/,/g , ';\n');
-      console.log($scope.number);
+    vm.change = function() {
+      vm.number = vm.number.replace(/,/g , ';\n');
+      console.log(vm.number);
     };
 
-		$scope.getAllMovies();
-
-
+		vm.getAllMovies();
 	}
 })();
