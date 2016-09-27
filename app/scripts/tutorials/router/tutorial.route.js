@@ -27,6 +27,13 @@
       .state('tutorials.button', {
         url: '/button-css',
         templateUrl: 'scripts/tutorials/views/button-css.html',
+        controller: 'buttonCssCtrl',
+        controllerAs: 'butCtrl',
+        resolve: {
+          _listData: function(MovieService) {
+            return MovieService.getListMovie();
+          }
+        },
         title: 'Button CSS'
       });
   }
