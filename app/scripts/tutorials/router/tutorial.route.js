@@ -35,6 +35,13 @@
           }
         },
         title: 'Button CSS'
+      })
+      .state('tutorials.asynchronous', {
+        url: '/asynchronous',
+        templateUrl: 'scripts/tutorials/views/asynchronous/asynchronous.html',
+        controller: 'AsynchronousCtrl',
+        controllerAs: 'AsynCtrl',
+        title: 'Asynchronous Example'
       });
   }
 
