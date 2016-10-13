@@ -10,56 +10,19 @@
       vm.listDataOne = [];
       vm.listDataTwo = [];
       vm.listDataThree = [];
-      vm.myFirstDeferred = $q.defer();
-
-      // async(function(value) {
-      //     myFirstDeferred.resolve(value);
-      // }, function(errorReason) {
-      //     myFirstDeferred.reject(errorReason);
-      // });
-
-      vm.asyn = function () {
-        var deffered = $q.defer();
-        var a = vm.getDataTwo();
-        deffered.resolve(vm.listDataTwo);
-        return deffered.promise;
-      };
-      vm.asyncTask = () =>
-        new Promise(resolve => {
-          var a = vm.getDataTwo();
-          resolve(a);
-      });
-      var a;
-      vm.test = function () {
-        vm.getDataTwo();
-        console.log('234234');
-        return a;
-      };
-
 
       vm.getDataOne = function () {
         ExampleDataService.getListMovie().then(function (successData) {
           vm.listDataOne = successData;
           console.log('DataOne', vm.listDataOne);
-          // var test = vm.asyn();
-          // var deferred = $q.defer();
-          // vm.getDataTwo().then(function(listDataTwo) {
-          //   console.log(listDataTwo);
-          //   vm.testData(123);
-          // }).catch(function() {
-          //   console.log('error');
+// This is asynchronous way simple Once
+          // vm.getDataTwo().then(function(data){
+          //   vm.testData(data);
           // });
-          // vm.test();
-          // deferred.resolve(a);
-          var promise = vm.getDataTwo();
-          console.log(promise);
-          // promise.then(function(listDataTwo) {
-            // console.log(listDataTwo);
-            // vm.testData(123);
-          // });
-          // vm.asyncTask().then(() => {
-          //   vm.testData(vm.listDataTwo);
-          // });
+
+          vm.asyn(vm.getDataTwo).then(function() {
+            vm.testData(vm.listDataTwo);
+          });
         })
         .catch(function (errorData) {
           console.log(errorData);
@@ -67,20 +30,17 @@
       };
 
       vm.getDataTwo = function () {
+        var deffered = $q.defer();
         ExampleDataService.getListMovie().then(function (successData) {
           vm.listDataTwo = successData;
           console.log('DataTwo', vm.listDataTwo);
-          var deffered = $q.defer();
           deffered.resolve(vm.listDataTwo);
-          console.log(deffered.promise);
-          return deffered.promise;
+
         })
         .catch(function (errorData) {
           console.log(errorData);
-          var deffered = $q.defer();
-          deffered.reject();
-          return deffered.promise;
         });
+        return deffered.promise;
       };
 
       vm.getDataThree = function () {
@@ -96,6 +56,22 @@
       vm.testData = function(data) {
         console.log(data);
       };
+// This is asynchronous way simple Two
+      vm.asyn = function(data) {
+        var deffered = $q.defer();
+        deffered.resolve(data());
+        return deffered.promise;
+      };
+
+      // var promise = new Promise(function(resolve, reject){
+      //   resolve();
+      //   reject();
+      // });
+      // promise.then(function(){
+      //   vm.getDataTwo();
+      // }).then(function() {
+      //   vm.testData(vm.listDataTwo);
+      // });
 
       vm.getDataOne();
       // vm.getDataTwo();
