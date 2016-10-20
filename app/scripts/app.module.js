@@ -10,6 +10,7 @@
       // 'ngSanitize',
       // 'ngTouch',
       'ui.router',
+      'ngMessages',
 
       'myapp.page1',
       'myapp.page2',
