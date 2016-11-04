@@ -1,0 +1,12 @@
+{
+    "status": true,
+    "data": [{
+        "id": 1,
+        "name": "cuongdv",
+        "email": "cuongdv@gmail.com"
+    }, {
+        "id": 2,
+        "name": "chipdv",
+        "email": "chipdv@gmail.com"
+    }]
+}

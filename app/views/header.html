@@ -1,4 +1,4 @@
-<div id="menu-wrap">
+<div ng-controller="HeaderController as vm" id="menu-wrap">
   <div class="wrap1">
     <div class="wrap2">
       <div class="wrap3">
@@ -25,20 +25,20 @@
                   <!-- <li class="second"><a href="#">Submenu Item</a></li> -->
                 </ul>
               </li>
-              <!-- <li id="menu3"><a href="#">Menu Item 3</a>
-                <ul class="submenu sub3">
+              <li id="menu3"><a href="#" ng-click="vm.logout()">LogOut</a>
+                <!-- <ul class="submenu sub3">
                   <li class="first"><a href="#">Submenu Item</a></li>
                   <li class="second"><a href="#">Submenu Item</a></li>
                   <li><a href="#">Submenu Item</a></li>
-                </ul>
+                </ul> -->
               </li>
-              <li id="menu4"><a href="#">Menu Item 4</a>
-                <ul class="submenu sub4">
+              <li id="menu4"><a href="#">Hello {{vm.currentUser.username}}</a>
+                <!-- <ul class="submenu sub4">
                   <li class="first"><a href="#">Submenu Item</a></li>
                   <li class="second"><a href="#">Submenu Item</a></li>
                   <li><a href="#">Submenu Item</a></li>
-                </ul>
-              </li> -->
+                </ul> -->
+              </li>
             </ul>
           <!-- end menu !-->
           </div><!-- nav holder !-->
