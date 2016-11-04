@@ -15,8 +15,8 @@
       .state('tutorials.responsive', {
         url: '/responsive-table',
         templateUrl: 'modules/tutorials/views/table.html',
-        Controller: 'TutorialsCtrl',
-        ControllerAs: 'tutorials',
+        controller: 'TutorialMainController',
+        controllerAs: 'vm',
         title: 'Responsive table'
       })
       .state('tutorials.css', {

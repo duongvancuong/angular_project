@@ -1,3 +1,4 @@
+<input type="text" ng-model="vm.letter">
 <table>
   <thead>
   <tr>
@@ -8,39 +9,13 @@
     <th>Staring</th>
   </tr>
   </thead>
-  <tr>
-    <td data-title="Movie">The Shawshank Redemption</td>
-    <td data-title="Release Date">1994</td>
-    <td data-title="IMDB Rating">9.3/10</td>
-    <td data-title="Director">Frank Darabont</td>
-    <td data-title="Staring">Tim Robbins, Morgan Freeman, Bob Gunton</td>
-  </tr>
-  <tr>
-    <td data-title="Movie">The Godfather</td>
-    <td data-title="Release Date">1972</td>
-    <td data-title="IMDB Rating">9.2/10</td>
-    <td data-title="Director">Francis Ford Coppola</td>
-    <td data-title="Staring">Marlon Brando, Al Pacino, James Caan</td>
-  </tr>
-  <tr>
-    <td data-title="Movie">The Godfather: Part II</td>
-    <td data-title="Release Date">1975</td>
-    <td data-title="IMDB Rating">9/10</td>
-    <td data-title="Director">Francis Ford Coppola</td>
-    <td data-title="Staring">Al Pacino, Robert De Niro, Robert Duvall</td>
-  </tr>
-  <tr>
-    <td data-title="Movie">The Dark Knight</td>
-    <td data-title="Release Date">2008</td>
-    <td data-title="IMDB Rating">9/10</td>
-    <td data-title="Director">Christopher Nolan</td>
-    <td data-title="Staring">Christian Bale, Heath Ledger, Aaron Eckhart</td>
-  </tr>
-  <tr>
-    <td data-title="Movie">Schindler's List </td>
-    <td data-title="Release Date">1993</td>
-    <td data-title="IMDB Rating">8.9/10</td>
-    <td data-title="Director">Steven Spielberg</td>
-    <td data-title="Staring">Liam Neeson, Ralph Fiennes, Ben Kingsley</td>
+  <tr ng-repeat="movie in vm.movies | startWithLetterFilter: vm.letter">
+    <td data-title="Movie">{{movie.title}}</td>
+    <td data-title="Release Date">{{movie.ReleaseDate}}</td>
+    <td data-title="IMDB Rating">{{movie.IMDBRating}}</td>
+    <td data-title="Director">{{movie.Director}}</td>
+    <td data-title="Staring">{{movie.Staring}}</td>
   </tr>
 </table>
+
+<file-upload></file-upload>
