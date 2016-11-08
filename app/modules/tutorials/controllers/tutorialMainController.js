@@ -6,6 +6,7 @@
 	TutorialMainController.$inject = ['$q', '$http', '$state', '$stateParams', '$scope'];
 	function TutorialMainController($q, $http, $state, $stateParams, $scope) {
 		var vm = this;
+		vm.userName = 'Value in Controler';
 		vm.movies = [
 			{
 				title: 'The Shawshank Redemption',
