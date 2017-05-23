@@ -1,25 +1,13 @@
 <table class="table movietable">
   <tr>
-    <td><h3>Details for {{Movie.title}}</h3></td>
+    <td><h3>Todo Title{{Todo.attributes.title}}</h3></td>
     <td></td>
   </tr>
   <tr>
-    <td>Movie Title</td>
-    <td>{{Movie.title}}</td>
-  </tr>
-  <tr>
-    <td>Director</td>
-    <td>{{Movie.director}}</td>
-  </tr>
-  <tr>
-    <td>Release Year</td>
-    <td>{{Movie.releaseYear}}</td>
-  </tr>
-  <tr>
-    <td>Movie Genre</td>
-    <td>{{Movie.genre}}</td>
+    <td>Create at</td>
+    <td>{{Todo.attributes.created_at}}</td>
   </tr>
 </table>
 <div>
-  <a class="btn btn-primary" ui-sref="movies.editMovie({id:Movie._id})">Edit</a>
+  <a class="btn btn-primary" ui-sref="todos.editTodo({id:Todo.id})">Edit</a>
 </div>

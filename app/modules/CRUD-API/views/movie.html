@@ -1,20 +1,51 @@
-<a ui-sref="movies.newMovie" class="btn-primary btn-lg nodecoration">Add New Movie</a>
+<!-- <a ui-sref="todos.newTodo" class="btn-primary btn-lg nodecoration">Add New Movie</a>
 <button type="button" class="btn " toggle="showDetails">Button Toggle</button>
 <table class="table movietable">
   <tr>
     <td><h3>All Movies</h3></td>
     <td></td>
   </tr>
-  <tr ng-repeat="movie in MovieListCtrl.ListMovie">
-    <td>{{movie.title}}</td>
+  <tr ng-repeat="todo in TodoListCtrl.listTodo">
+    <td>{{todo.attributes.title}}</td>
     <td>
-      <a class="btn btn-primary" ui-sref="movies.viewMovie({id:movie._id})">View</a>
-      <a class="btn btn-danger"  ng-click="MovieListCtrl.deleteMovie(movie._id)">Delete</a>
+      <a class="btn btn-primary" ui-sref="todos.viewTodo({id:todo.id})">View</a>
+      <a class="btn btn-danger"  ng-click="TodoListCtrl.deleteTodo(todo.id)">Delete</a>
     </td>
   </tr>
 </table>
 
-<textarea name="" class="form-control" rows="15" ng-model="MovieListCtrl.number"></textarea>
-<button ng-click="MovieListCtrl.addNumber()">button</button>
+<textarea name="" class="form-control" rows="15" ng-model="TodoListCtrl.number"></textarea>
+<button ng-click="TodoListCtrl.addNumber()">button</button>
 <buttonshow></buttonshow>
-<input type="file" file-reader="fileContent" />
+<input type="file" file-reader="fileContent" /> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <div class="todolist not-done">
+            <h1>Todos</h1>
+            <input type="text" class="form-control add-todo" placeholder="Add todo">
+                    <button id="checkAll" class="btn btn-success">Mark all as done</button>
+                    <hr>
+                  <ul id="sortable" class="list-unstyled">
+                    <li class="ui-state-default">
+                      <div class="checkbox">
+                        <label><input type="checkbox" value="" />Take out the trash</label>
+                      </div>
+                    </li>
+                  </ul>
+                <div class="todo-footer">
+                    <strong><span class="count-todos"></span></strong> Items Left
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="todolist">
+             <h1>Already Done</h1>
+                <ul id="done-items" class="list-unstyled">
+                    <li>Some item <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

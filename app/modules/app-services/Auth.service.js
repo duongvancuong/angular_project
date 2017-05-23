@@ -22,20 +22,42 @@
 	  	}
 	  	return authService;
 
-	  function login() {
-	    return $http.get('./data/login.json').then(function(data, status, headers, config) {
-	      var res = data.data;
-	      if (res.status) {
-	          $http.defaults.headers.common.Authorization = 'Bearer ' + res.data.token;
-	          $localStorage.currentUser = {
-	              username: res.data.name,
-	              token: res.data.token
-	          };
-	          authService.currentUser.token = res.data.token;
-	          authService.currentUser.username = res.data.name;
-	      }
-	      return;
-	    });
+	  function login(data_login) {
+	  	var deffered = $q.defer();
+	  	$http.post('http://localhost:3000/auth/login',data_login)
+        .then(function(response, status, headers, config) {
+          deffered.resolve(response.data);
+          var res = response.data;
+		      if (res.status) {
+		          $http.defaults.headers.common.Authorization = res.data.token;
+		          $localStorage.currentUser = {
+		              username: res.data.name,
+		              token: res.data.token
+		          };
+		          authService.currentUser.token = res.data.token;
+		          authService.currentUser.username = res.data.name;
+		      }
+        })
+        .catch(function(response) {
+          deffered.reject(response.data);
+        })
+        .finally(function() {
+          console.log("finally finished gists");
+        });
+      return deffered.promise;
+	    // return $http.get('localhost:3000/auth/login').then(function(data, status, headers, config) {
+	    //   var res = data.data;
+	    //   if (res.status) {
+	    //       $http.defaults.headers.common.Authorization = res.data.token;
+	    //       $localStorage.currentUser = {
+	    //           username: res.data.name,
+	    //           token: res.data.token
+	    //       };
+	    //       authService.currentUser.token = res.data.token;
+	    //       authService.currentUser.username = res.data.name;
+	    //   }
+	    //   return;
+	    // });
 	  }
 
 	  function logout() {

@@ -1,13 +1,13 @@
 (function() {
 	'use strict';
 	angular
-		.module('myapp.movie')
-		.controller('MovieListController',MovieListController);
-	MovieListController.$inject = ['$scope','MovieService', 'popupService', '$state','$window','$stateParams'];
-	function MovieListController($scope, MovieService, popupService, $state, $window, $stateParams) {
+		.module('myapp.todo')
+		.controller('TodoListController',TodoListController);
+	TodoListController.$inject = ['$scope','TodoService', 'popupService', '$state','$window','$stateParams'];
+	function TodoListController($scope, TodoService, popupService, $state, $window, $stateParams) {
     var vm = this;
 
-		vm.ListMovie = [];
+		vm.listTodo = [];
     vm.showDetails = 'false';
     $scope.fileContent = '';
     vm.listNumber = [];
@@ -27,19 +27,19 @@
       }
     });
 
-		vm.getAllMovies = function() {
-			MovieService.getListMovie().then(function(successData) {
-				vm.ListMovie = successData;
+		vm.getAllTodos = function() {
+			TodoService.getListTodo().then(function(successData) {
+				vm.listTodo = successData.data.data;
 			}).catch(function(errorData) {
 				$window.alert(errorData);
 			});
 		};
 
-		vm.deleteMovie = function(movieId) {
+		vm.deleteTodo = function(todoId) {
 			if(popupService.showPopup("Really delete this ?")){
-				MovieService.deleteMovie(movieId).then(function(successData) {
-					vm.getAllMovies();
-					$state.go('movies.listMovie');
+				TodoService.deleteTodo(todoId).then(function(successData) {
+					vm.getAllTodos();
+					$state.go('todos.listTodo');
 				}).catch(function(errorData) {
 					$window.alert(errorData);
 				});
@@ -68,6 +68,6 @@
       console.log(vm.number);
     };
 
-		vm.getAllMovies();
+		vm.getAllTodos();
 	}
 })();

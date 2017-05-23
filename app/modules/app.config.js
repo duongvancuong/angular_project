@@ -28,7 +28,7 @@
 		$rootScope.$stateParams = $stateParams;
 
 		if ($localStorage.currentUser) {
-			$http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
+			$http.defaults.headers.common.Authorization = $localStorage.currentUser.token;
       AuthService.updateCurrentUser($localStorage.currentUser.token, $localStorage.currentUser.username);
 		}
 
@@ -48,7 +48,7 @@
 			}
 		});
 
-		$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, options) {			$rootScope.title = toState.title || 'Home';
+		$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, options) {$rootScope.title = toState.title || 'Home';
 		});
 	}
 

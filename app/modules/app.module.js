@@ -15,7 +15,7 @@
       'myapp.page1',
       'myapp.page2',
       'myapp.page3',
-      'myapp.movie',
+      'myapp.todo',
       'myapp.tutorial',
       'myapp.login',
 

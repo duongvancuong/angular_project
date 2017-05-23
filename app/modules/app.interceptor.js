@@ -9,7 +9,7 @@
 	    request: function (config) {
 	      config.headers = config.headers || {};
 	      if ($localStorage.currentUser) {
-	        config.headers.Authorization = 'Bearer ' + $localStorage.currentUser.token;
+	        config.headers.Authorization = $localStorage.currentUser.token;
 	      }
 	      return config;
 	    },
